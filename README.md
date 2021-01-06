@@ -41,3 +41,26 @@ paste file1 file2
 - 따라서 형태소 분석기를 통한 tokenization을 진행한 이후, subword segmentation을 적용하는 것을 권장
 
 ## Detokenization
+- token화 시 사용한 "_" 제거
+
+## 병렬 코퍼스 정렬 시키기
+- MUSE : facebook에서 제공 하는 word translation dictionary
+
+## mini batch
+- <BOS> : begin <EOS> : End of setence
+- Sequence 차원의 크기는 미니배치 내의 가장 긴 문장에 의해 결정됨
+-- 각 샘플별 모자라는 부분은 padding으로 대체, 따라서 <PAD> 토큰이 필요.
+
+### Increase Training Efficiency
+- 짧은 문장의 경우 pad(버려지는)가 많아지므로 효율적이게 구성하기 위한 방법
+
+- 1) Sort by sequence length
+
+- 2) Get chunks with similar length of sequences
+
+### torchtext
+- step1) Define Fields
+
+- step2) Define Dataset with Fields
+
+- step3) Get DataLoaders from Datasets
